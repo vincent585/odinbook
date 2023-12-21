@@ -1,6 +1,8 @@
 <h1>Posts</h1>
 
 <% @posts.each do |post| %>
-  <strong><%=post.user.name %></strong>
-  <p><%=post.body %></p>
+  <div>
+    <strong><%=post.user.name %></strong>
+    <p><%=post.body %></p>
+  </div>
 <% end %>

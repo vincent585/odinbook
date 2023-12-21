@@ -1,8 +1,4 @@
 class FollowsController < ApplicationController
-  def new
-    @follow = Follow.new
-  end
-
   def create
     @follow = Follow.new(followed_id: params[:id], follower_id: current_user.id, accepted: false)
 

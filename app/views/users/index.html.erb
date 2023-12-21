@@ -1,0 +1,13 @@
+<div class="container-sm text-center">
+  <h1>All users</h1>
+  <% @users.each do |user| %>
+    <strong><%= user.name %></strong>
+    <% if current_user.followed.include?(user) && current_user.followed_users.where(followed_id: user.id).first!.accepted %>
+      <p>Already following!</p>
+      <% elsif current_user.followed.include?(user) && !current_user.followed_users.where(followed_id: user.id).first!.accepted %>
+        <p>Request pending!</p>
+    <% else %>
+      <%= button_to 'Follow', follows_path(id: user.id), class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+</div>
